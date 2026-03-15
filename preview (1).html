@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reisson Designer | Santo Antônio de Jesus</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="description" content="Designer Gráfico em Santo Antônio de Jesus especializada em cartões de visita, panfletos, convites, talões e impressões rápidas.">
+
+<style>
+
+:root{
+--azul:#001d35;
+--ciano:#0cc0df;
+--cinza:#a3a3a3;
+--destaque:#ffbd59;
+--branco:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, Arial;
+}
+
+body{
+background:#f4f6f8;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+background:var(--branco);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 8%;
+}
+
+.logo img{
+height:45px;
+}
+
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:var(--azul);
+text-decoration:none;
+font-weight:500;
+}
+
+.menu a:hover{
+color:var(--ciano);
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+color:var(--azul);
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:85vh;
+
+background:
+linear-gradient(rgba(0,29,53,0.85), rgba(0,29,53,0.90)),
+url("imagens/fundo.png");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.btn-insta {
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+  transition: 0.3s;
+  background: #eee; /* Cor do botão */
+  z-index: 0;
+}
+
+.btn-insta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 3px; /* largura da borda */
+  border-radius: 30px; /* mesmo border-radius do botão */
+  background: linear-gradient(#ffd600, #ff7a00, #ff0069, #d300c5, #7638fa);
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.btn-insta:hover {
+  transform:scale(1.05);
+}
+
+.btn{
+background:var(--destaque);
+padding:15px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+color:#000;
+display:inline-block;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* SEÇÕES */
+
+section{
+padding:50px 8%;
+}
+
+section h2{
+text-align:center;
+margin-bottom:20px;
+color:var(--azul);
+}
+
+/* SERVIÇOS */
+
+.servicos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+margin-bottom:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card h3{
+color:var(--ciano);
+margin-bottom:10px;
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.portfolio img{
+width:100%;
+border-radius:10px;
+transition:.3s;
+}
+
+.portfolio img:hover{
+transform:scale(1.05);
+}
+
+/* SOBRE */
+
+.sobre{
+max-width:800px;
+margin:auto;
+text-align:center;
+font-size:18px;
+}
+
+/* CONTATO */
+
+.contato{
+text-align:center;
+
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+font-size:26px;
+padding:16px 18px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 5px 12px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--azul);
+color:white;
+text-align:center;
+padding:30px;
+}
+
+/* ANIMAÇÃO */
+
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu{
+position:absolute;
+top:60px;
+left:0;
+background:var(--azul);
+width:100%;
+flex-direction:column;
+align-items:center;
+display:none;
+}
+
+.menu a{
+padding:15px;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+/* FAIXA DE SERVIÇOS */
+
+.faixa-servicos{
+width:100%;
+background:#0cc0df;
+overflow:hidden;
+padding:14px 0;
+}
+
+.faixa-track{
+display:flex;
+gap:60px;
+width:max-content;
+animation:scrollFaixa 30s linear infinite;
+}
+
+.faixa-track span{
+font-weight:bold;
+color:#001d35;
+font-size:18px;
+white-space:nowrap;
+}
+
+/* animação */
+
+@keyframes scrollFaixa{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+<img src="imagens/logo.png">
+</div>
+
+<div class="menu" id="menu">
+
+<a href="#inicio">Início</a>
+<a href="#servicos">Serviços</a>
+<a href="#portfolio">Portfólio</a>
+<a href="#sobre">Sobre</a>
+<a href="#contato">Contato</a>
+
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+</header>
+
+<section class="hero" id="inicio">
+
+<div>
+
+<h1>Soluções gráficas em Santo Antônio de Jesus</h1>
+
+<p>Cartões de visita, panfletos, convites, talões e impressões profissionais.</p>
+
+<a class="btn"
+href="https://wa.me/5575998855287?text=Olá!%20quero%20um%20orçamento."
+target="_blank">
+
+Orçamento no whatsapp
+
+</a>
+
+</div>
+
+
+</section>
+<div class="faixa-servicos">
+
+<div class="faixa-track">
+
+<span>Cartões de Visita</span>
+<span>Panfletos</span>
+<span>Convites</span>
+<span>Talões Personalizados</span>
+<span>Marca-Páginas</span>
+<span>Impressões Coloridas</span>
+<span>Xerox Preto e Branco</span>
+<span>Livretos</span>
+
+<!-- repetição para efeito infinito -->
+
+<span>Cartões de Visita</span>
+<span>Panfletos</span>
+<span>Convites</span>
+<span>Talões Personalizados</span>
+<span>Marca-Páginas</span>
+<span>Impressões Coloridas</span>
+<span>Xerox Preto e Branco</span>
+<span>Livretos</span>
+
+</div>
+
+</div>
+<section id="servicos" class="hidden">
+
+<h2>Serviços</h2>
+
+<div class="servicos">
+
+<div class="card">
+<img src="imagens/cartao.png">
+<h3>Cartões de Visita</h3>
+<p>Cartões profissionais para empresas e autônomos.</p>
+</div>
+
+<div class="card">
+<img src="imagens/panfleto.png">
+<h3>Panfletos</h3>
+<p>Material ideal para divulgação de promoções.</p>
+</div>
+
+<div class="card">
+<img src="imagens/convite.png">
+<h3>Convites</h3>
+<p>Convites personalizados para eventos.</p>
+</div>
+
+<div class="card">
+<img src="imagens/talao.png">
+<h3>Talões</h3>
+<p>Talões personalizados para recibos, notas, etc...</p>
+</div>
+
+<div class="card">
+<img src="imagens/marcador.png">
+<h3>Marca-Páginas</h3>
+<p>Material promocional criativo.</p>
+</div>
+
+<div class="card">
+<img src="imagens/impressao.png">
+<h3>Impressões</h3>
+<p>Impressões coloridas e preto e branco.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio" class="hidden">
+
+<h2>Alguns Trabalhos</h2>
+
+<div class="portfolio">
+
+<img src="imagens/cartao.png">
+<img src="imagens/panfleto.png">
+<img src="imagens/convite.png">
+<img src="imagens/talao.png">
+
+</div>
+
+</section>
+
+<section id="sobre" class="hidden" style="padding-bottom: 20px; background:#ddd">
+
+<h2>Sobre</h2>
+
+<div class="sobre">
+
+<div class="sobre" >
+
+<p>
+A <strong>Reisson Designer</strong> é um especialista em soluções gráficas em Santo Antônio de Jesus - BA, com o objetivo de oferecer soluções práticas e de qualidade em materiais gráficos para empresas, profissionais autônomos e eventos.
+</p>
+
+<br>
+
+<p>
+O trabalho é conduzido por um designer gráfico que entende que um bom material impresso não depende apenas da arte, mas também da qualidade da produção. Por isso, cada projeto recebe atenção desde a criação ou adaptação do design até a etapa final de impressão, garantindo que o resultado seja funcional, profissional e adequado para o objetivo de cada cliente.
+</p>
+
+<br>
+
+<p>
+Entre os principais serviços estão a produção de <strong>cartões de visita, panfletos, convites, talões personalizados, marca-páginas, livretos e impressões em geral</strong>, tanto coloridas quanto em preto e branco. Esses materiais são perfeitos para quem deseja divulgar seus serviços de forma clara e eficiente.
+</p>
+
+<br>
+
+<p>
+A nossa proposta é oferecer um atendimento direto, simples e rápido. Cada cliente pode explicar exatamente o que precisa, receber orientação quando necessário e obter um material gráfico que realmente represente bem seu negócio ou evento.
+</p>
+
+<br>
+
+<p>
+Mesmo sendo uma mini gráfica, o compromisso é trabalhar com organização, responsabilidade e cuidado em cada pedido, buscando sempre entregar materiais que ajudem clientes a fortalecer sua comunicação visual e alcançar mais pessoas através do material impresso.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<div class="faixa-servicos">
+
+<div class="faixa-track">
+
+<span>Cartões de Visita</span>
+<span>Panfletos</span>
+<span>Convites</span>
+<span>Talões Personalizados</span>
+<span>Marca-Páginas</span>
+<span>Impressões Coloridas</span>
+<span>Xerox Preto e Branco</span>
+<span>Livretos</span>
+
+<!-- repetição para efeito infinito -->
+
+<span>Cartões de Visita</span>
+<span>Panfletos</span>
+<span>Convites</span>
+<span>Talões Personalizados</span>
+<span>Marca-Páginas</span>
+<span>Impressões Coloridas</span>
+<span>Xerox Preto e Branco</span>
+<span>Livretos</span>
+
+</div>
+
+</div>
+<section id="contato" class="hidden" style="padding: 20px;">
+
+<h2>Contato</h2>
+
+<div class="contato">
+
+<p>Solicite seu orçamento pelo WhatsApp.</p>
+
+<br>
+
+<a class="btn" href="https://wa.me/5575998855287?text=Olá!%20Quero%20um%20orçamento." target="_blank">
+
+Falar no WhatsApp
+
+</a>
+
+</div>
+<br>
+<div class="contato">
+
+<a class="btn-insta" href="https://instagram.com/reissondesigner" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+
+</div>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/5575998855287?text=Olá!%20Vim%20pelo%20site." target="_blank">💬</a>
+
+<footer>
+
+<p>© 2026 Reisson Designer</p>
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.getElementById("menu")
+
+if(menu.style.display==="flex"){
+menu.style.display="none"
+}else{
+menu.style.display="flex"
+}
+
+}
+
+/* SCROLL SUAVE */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener("click",function(e){
+e.preventDefault()
+document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"})
+})
+})
+
+/* ANIMAÇÃO AO ROLAR */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".hidden").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
+
+</body>
+</html>
